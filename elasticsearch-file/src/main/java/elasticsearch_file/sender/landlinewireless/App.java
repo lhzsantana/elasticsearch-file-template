@@ -14,8 +14,9 @@ public class App {
 	public static void main(String[] args) {
 
 		LandlineWireless es = new LandlineWireless();
-		
-		String csvFile = "nanpa-sorta-thousands-ilec.csv";
+
+		String csvFile = "sort/nanpa-sorta-thousands-ile.csv";
+
 
 		BufferedReader br = null;
 		String line = "";

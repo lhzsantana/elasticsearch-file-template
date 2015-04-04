@@ -15,8 +15,8 @@ public class LandlineWireless {
 	private static Client client;
 	private static TransportClient transportClient;
 
-	private static String server = "52.4.162.5";
-	private static String port = "9300";
+	private static String server="198.23.188.82";
+	private static String port="9301";
 	private static String cluster = "elasticsearch";
 
 	public static synchronized Client getClient() throws Exception {
@@ -40,9 +40,10 @@ public class LandlineWireless {
 		doc.field("phone").value(phone);
 		doc.field("npa").value(npa);
 		doc.field("nxx").value(nxx);
+		doc.field("complete").value(npa+nxx+phone);
 		doc.endObject();
 
-		this.getClient().prepareIndex("kubal", type).setSource(doc).get();
+		this.getClient().prepareIndex("randomnumbers", type).setSource(doc).get();
 	}
 
 	public void sendToElasticsearc(String type, String phone, String npa,

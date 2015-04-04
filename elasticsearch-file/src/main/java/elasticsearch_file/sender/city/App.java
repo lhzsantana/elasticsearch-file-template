@@ -15,7 +15,7 @@ public class App {
 
 		City es = new City();
 		
-		String csvFile = "nanpa-sorta-thousands-ilec.csv";
+		String csvFile = "sort/nanpa-sorta-thousands-ile.csv";
 
 		BufferedReader br = null;
 		String line = "";
@@ -41,11 +41,12 @@ public class App {
 					String nxx = splitedLine[1].replace("\"", "");
 					String state = splitedLine[3].replace("\"", "");
 					String city = isNumber(splitedLine[6].replace("\"", ""));
+					String nickname = isNumber(splitedLine[10].replace("\"", ""));
 
 					
-					System.out.println("Line: " + "|" + npa + "|" +  nxx + "|" +  state + "|" +  city);
+					//System.out.println("Line: " + "|" + npa + "|" +  nxx + "|" +  state + "|" +  city + "|" + nickname);
 					
-					if(!city.equals("")) es.sendToElasticsearc(city, state, npa, nxx);
+					if(!city.equals("")) es.sendToElasticsearc(city, nickname, state, npa, nxx);
 				}
 				
 
